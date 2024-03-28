@@ -5,25 +5,17 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-// Was soll das programm können?
-
-// Man soll eine url und ein css selektor angeben | DONE
-// Als Ergebnis soll dann der Inhalt des Tags sein
-// z.B.: extractor https://pixelding.de h1
-// Output soll "Die Agentur, die du suchst."
-
-// os.Args ist die Methode um mit Argumente im Aufruf des Programmes zu speichern und zu verwenden
-
 func main() {
     url := os.Args[1]
-    selektor := os.Args[2]
+    selector := os.Args[2]
 
     fmt.Println(url)
-    fmt.Println(selektor)
+    fmt.Println(selector)
 
     resp, err := http.Get(url)
     if err != nil {
@@ -40,8 +32,11 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-}
 
-// Wir können Argumente verwenden und speichern. Dafür haben wir jetzt die Variable url und selektor
-// Wir können jetzt eine Anfrage machen
-// Anfragen klappen und body wird gespeichert, aber da müssen wir noch mit goquery arbeiten und testen
+    result, err := doc.Find(selector).Html()
+    if err != nil {
+        log.Fatal(err)
+    }
+    result_trimmed := strings.TrimSpace(result)
+    fmt.Println(result_trimmed)
+}
