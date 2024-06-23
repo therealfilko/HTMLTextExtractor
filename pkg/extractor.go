@@ -26,10 +26,15 @@ func FetchAndExtractHTML(url string, selector string) (string, error) {
         return "", err
     }
 
-    result, err := doc.Find(selector).Html()
+    result := doc.Find(selector)
+    if result.Length() == 0 {
+        return "", fmt.Errorf("no elements found for selector: %s", selector)
+    }
+
+    html, err := result.Html()
     if err != nil {
         return "", err
     }
-    result_trimmed := strings.TrimSpace(result)
+    result_trimmed := strings.TrimSpace(html)
     return result_trimmed, nil
 }
