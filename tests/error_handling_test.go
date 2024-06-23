@@ -4,7 +4,7 @@ import (
     "net/http"
     "net/http/httptest"
     "testing"
-    extractor "github.com/therealfilko/HTMLTextExtractor/pkg"
+    extractor "github.com/therealfilko/HTMLTextExtractor/pkg/extractor"
 )
 
 func TestFetchAndExtractHTMLErrorHandling(t *testing.T) {
