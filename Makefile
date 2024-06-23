@@ -4,5 +4,8 @@ default:
 run:
 	go run cmd/main.go
 
+test:
+	go test ./tests/... -v
+
 clean:
 	rm extractor

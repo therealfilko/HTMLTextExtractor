@@ -18,15 +18,16 @@ func TestFetchAndExtractHTML(t *testing.T) {
 
     // Testfall
     tests := []struct {
+        name     string
         url      string
         selector string
         expected string
     }{
-        {mockServer.URL, "#test", "Hello, World!"},
+        {"ValidSelector", mockServer.URL, "#test", "Hello, World!"},
     }
 
     for _, tt := range tests {
-        t.Run(tt.selector, func(t *testing.T) {
+        t.Run(tt.name, func(t *testing.T) {
             result, err := extractor.FetchAndExtractHTML(tt.url, tt.selector)
             if err != nil {
                 t.Errorf("unexpected error: %v", err)
