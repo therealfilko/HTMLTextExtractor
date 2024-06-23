@@ -8,6 +8,7 @@ import (
     "github.com/PuerkitoBio/goquery"
 )
 
+// FetchAndExtractHTML fetches the URL and extracts HTML based on the selector
 func FetchAndExtractHTML(url string, selector string) (string, error) {
     resp, err := http.Get(url)
     if err != nil {

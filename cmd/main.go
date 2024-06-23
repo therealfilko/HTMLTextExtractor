@@ -1,11 +1,11 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "os"
+	"fmt"
+	"log"
+	"os"
 
-    "github.com/therealfilko/HTMLTextExtractor/pkg/extractor"
+	extractor "github.com/therealfilko/HTMLTextExtractor/pkg"
 )
 
 func main() {
