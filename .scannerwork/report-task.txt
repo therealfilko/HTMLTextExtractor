@@ -1,0 +1,6 @@
+projectKey=HTMLTextExtractor
+serverUrl=http://localhost:9000
+serverVersion=10.5.1.90531
+dashboardUrl=http://localhost:9000/dashboard?id=HTMLTextExtractor
+ceTaskId=5099d14f-524c-4caf-98ac-0606620e24cf
+ceTaskUrl=http://localhost:9000/api/ce/task?id=5099d14f-524c-4caf-98ac-0606620e24cf
